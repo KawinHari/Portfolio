@@ -315,12 +315,28 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.5rem 5v
 }
 
 /* TOP PHOTO BANNER */
-#top-banner{
-  position:relative;
-  width:100%;
-  height:100vh;
-  overflow:hidden;
-  margin-top:0;
+#top-banner img.desktop-banner{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center center;
+  filter:brightness(0.85);
+  transition:transform 8s ease;
+  display:block;
+}
+#top-banner img.mobile-banner{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center top;
+  filter:brightness(0.85);
+  transition:transform 8s ease;
+  display:none;
+}
+@media(max-width:768px){
+  #top-banner img.desktop-banner{display:none;}
+  #top-banner img.mobile-banner{display:block;}
+  #top-banner{height:100svh;}
+  #top-banner .banner-name{font-size:clamp(2rem,10vw,3.5rem);white-space:normal;letter-spacing:-1px;}
+  #top-banner .banner-content{padding:2rem 6vw;}
 }
 #top-banner img{
   width:100%;height:100%;
@@ -389,7 +405,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.5rem 5v
 <div class="cursor-ring" id="cursorRing"></div>
 
 <nav id="navbar">
-  <div class="nav-logo">KawinHari.dev</div>
+  <div class="nav-logo">KawinHari</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
@@ -402,7 +418,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.5rem 5v
 
 <!-- TOP PHOTO BANNER -->
 <section id="top-banner">
-  <img src="banner.jpeg" alt="Kawin Hari K B" />
+  <!-- Desktop: wide/landscape photo -->
+  <img class="desktop-banner" src="banner.jpeg" alt="Kawin Hari K B" />
+  <!-- Mobile: portrait/vertical photo -->
+  <img class="mobile-banner" src="bannerformob.jpeg" alt="Kawin Hari K B" />
  <div class="banner-overlay"></div>
   <div class="banner-content">
     <div class="banner-eyebrow">// Software Engineer — Chennai, India</div>
@@ -624,7 +643,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:1.5rem 5v
 </section>
 
 <footer>
-  <div class="foot-l">KawinHari.dev</div>
+  <div class="foot-l">KawinHari</div>
   <div class="foot-r">© 2026 — Kawin Hari K B</div>
 </footer>
 
